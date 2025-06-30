@@ -6,6 +6,16 @@
 3. tag cloud (when the user clicks on the tag, you display the list of templates—in general, you should use “search results page” for it).
  * 
  */
+
+import { Link } from "@/i18n/navigation";
+import { useTranslations } from "next-intl";
+
 export default function Home() {
-  return <div className="">Home</div>
+    const t = useTranslations("HomePage");
+    return (
+        <div>
+            <h1>{t("title")}</h1>
+            <Link href="/templates">{t("templates")}</Link>
+        </div>
+    );
 }
