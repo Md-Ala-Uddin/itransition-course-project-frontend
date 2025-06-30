@@ -1,3 +1,9 @@
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { TabEditableQuestions } from "./TabEditableQuestions";
+import { TabResults } from "./TabResults";
+import { TabAggregation } from "./TabAggregation";
+import { TabGeneralSettings } from "./TabGeneralSettings";
+
 /**
  * @fileoverview This file shows a single template
  * @description A template can have like and comments
@@ -20,7 +26,28 @@
  * **Every template also has "likes" (no more than one from one user per given template).**
  */
 export default function Template() {
-    return <div className="">
-
-    </div>
+    return (
+        <div className="w-full">
+            <Tabs defaultValue="account" className="w-[400px]">
+                <TabsList>
+                    <TabsTrigger value="questions">Questions</TabsTrigger>
+                    <TabsTrigger value="results">Results</TabsTrigger>
+                    <TabsTrigger value="aggregation">Aggregation</TabsTrigger>
+                    <TabsTrigger value="settings">Settings</TabsTrigger>
+                </TabsList>
+                <TabsContent value="questions">
+                    <TabEditableQuestions />
+                </TabsContent>
+                <TabsContent value="results">
+                    <TabResults />
+                </TabsContent>
+                <TabsContent value="aggregation">
+                    <TabAggregation />
+                </TabsContent>
+                <TabsContent value="settings">
+                    <TabGeneralSettings />
+                </TabsContent>
+            </Tabs>
+        </div>
+    );
 }
